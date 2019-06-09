@@ -1,0 +1,321 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Escenas/Nivel1.cs" type="Script" id=1]
+[ext_resource path="res://hdri/cielo.jpg" type="Texture" id=2]
+[ext_resource path="res://Escenas/columnas.cs" type="Script" id=3]
+[ext_resource path="res://Escenas/columnas.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/suelo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/JUGADORflappyBird.tscn" type="PackedScene" id=6]
+[ext_resource path="res://typografias/LuckiestGuy.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://musica/sfx_point.wav" type="AudioStream" id=8]
+[ext_resource path="res://musica/POL-macaron-island-short.wav" type="AudioStream" id=9]
+[ext_resource path="res://musica/sfx_hit.wav" type="AudioStream" id=10]
+[ext_resource path="res://musica/pajaros_efecto_de_sonido.ogg" type="AudioStream" id=11]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 2, 28, 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 7 )
+
+[node name="escena_principal" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 3 )
+script = ExtResource( 1 )
+velocidadDesplazamientoX = -200.0
+
+[node name="iluminacion" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="iluminacion"]
+transform = Transform( 0.253994, 0.967206, 7.56962e-009, -0.639751, 0.168003, 0.749996, 0.7254, -0.190495, 0.661443, 0, 162, 0 )
+light_energy = 0.5
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="iluminacion"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 1482, 107, 0 )
+extents = Vector3( 1500, 80, 70 )
+origin_offset = Vector3( -0.99, 2.23517e-010, 2.23517e-010 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="iluminacion"]
+environment = SubResource( 2 )
+
+[node name="columnas" type="Spatial" parent="." groups=[
+"columnas",
+]]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -190, 0 )
+
+[node name="columnas" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 600, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas2" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 800, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas2" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas2" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas2/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas3" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1000, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas3" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas3" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas3/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas4" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1200, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas4" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas4" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas4" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas4/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas5" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1400, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas5" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas5" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas5" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas5/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas6" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1600, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas6" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas6" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas6/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas7" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1800, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas7" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas7" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas7" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas7/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas8" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2000, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas8" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas8" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas8" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas8/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas9" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2200, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas9" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas9" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas9" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas9/Area"]
+shape = SubResource( 3 )
+
+[node name="columnas10" type="Spatial" parent="columnas" groups=[
+"columnaunoParaPrueba",
+]]
+editor/display_folded = true
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2400, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Columnas1" parent="columnas/columnas10" instance=ExtResource( 4 )]
+
+[node name="Columnas2" parent="columnas/columnas10" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 0, 415, 0 )
+
+[node name="Area" type="Area" parent="columnas/columnas10" groups=[
+"puntaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 207, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="columnas/columnas10/Area"]
+shape = SubResource( 3 )
+
+[node name="suelo" parent="." instance=ExtResource( 5 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, 202.44, 0 )
+far = 5000.0
+
+[node name="flappyBird" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 264.53, 197, 0 )
+mass = 0.2
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_velocity = Vector3( 0, 1, 0 )
+
+[node name="CamaraLateral" type="Camera" parent="flappyBird"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.242, -0.824, 55.54 )
+current = true
+far = 5000.0
+
+[node name="puntos" type="Label" parent="." groups=[
+"puntos",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -709.0
+margin_bottom = -535.0
+custom_fonts/font = SubResource( 4 )
+text = "Puntos: 0"
+
+[node name="VFX_Musica" type="Node" parent="."]
+
+[node name="puntos" type="AudioStreamPlayer" parent="VFX_Musica" groups=[
+"sonido_puntos",
+]]
+stream = ExtResource( 8 )
+
+[node name="musica" type="AudioStreamPlayer" parent="VFX_Musica" groups=[
+"musica",
+]]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="volar" type="AudioStreamPlayer" parent="VFX_Musica"]
+
+[node name="hit" type="AudioStreamPlayer" parent="VFX_Musica" groups=[
+"hit",
+]]
+stream = ExtResource( 10 )
+
+[node name="Sonido_pajaro" type="AudioStreamPlayer" parent="VFX_Musica" groups=[
+"Sonido_pajaro",
+]]
+stream = ExtResource( 11 )
+[connection signal="body_exited" from="columnas/columnas/Area" to="columnas/columnas" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas2/Area" to="columnas/columnas2" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas3/Area" to="columnas/columnas3" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas4/Area" to="columnas/columnas4" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas5/Area" to="columnas/columnas5" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas6/Area" to="columnas/columnas6" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas7/Area" to="columnas/columnas7" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas8/Area" to="columnas/columnas8" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas9/Area" to="columnas/columnas9" method="_on_Area_body_exited"]
+[connection signal="body_exited" from="columnas/columnas10/Area" to="columnas/columnas10" method="_on_Area_body_exited"]

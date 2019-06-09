@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Escenas/plataforma_chica.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/plataforma_chica.cs" type="Script" id=2]
+
+[node name="suelo" type="Spatial"]
+
+[node name="plataforma_chica" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="plataforma_chica2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1000, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="plataforma_chica3" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 2000, 0, 0 )
+script = ExtResource( 2 )

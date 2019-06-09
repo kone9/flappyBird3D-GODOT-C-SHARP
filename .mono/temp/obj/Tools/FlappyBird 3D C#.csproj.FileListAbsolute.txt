@@ -1,0 +1,6 @@
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\bin\Tools\FlappyBird 3D C#.dll
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\bin\Tools\FlappyBird 3D C#.pdb
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\obj\Tools\FlappyBird 3D C#.csprojAssemblyReference.cache
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\obj\Tools\FlappyBird 3D C#.csproj.CoreCompileInputs.cache
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\obj\Tools\FlappyBird 3D C#.dll
+D:\Proyectos GODOT ENGINE Y BLENDER3D\FlappyBird3D C#\.mono\temp\obj\Tools\FlappyBird 3D C#.pdb
