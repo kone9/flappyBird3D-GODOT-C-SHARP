@@ -48,13 +48,12 @@
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Escenas\columnas.cs" />
-    <Compile Include="Escenas\flappyBirdMenuInicio.cs" />
     <Compile Include="Escenas\JUGADORflappyBird.cs" />
     <Compile Include="Escenas\Nivel1.cs" />
     <Compile Include="Escenas\plataforma_chica.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
